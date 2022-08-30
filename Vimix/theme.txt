@@ -1,4 +1,3 @@
-# GRUB2 gfxmenu Linux Vimix theme
 # Designed for any resolution
 
 # Global Property
