@@ -128,7 +128,7 @@ Update GRUB:
 sudo grub2-mkconfig -o /etc/grub2.cfg
 ```
 
-Update grub for UEFI boot:
+Update GRUB for UEFI boot:
 
 ```shell
 sudo grub2-mkconfig -o /etc/grub2-efi.cfg
