@@ -1,11 +1,8 @@
 <h1 align="center">
-  <a href="https://www.gnu.org/software/grub/">
-    <img
-        src="https://upload.wikimedia.org/wikipedia/commons/8/81/Grub_logo_large.png"
-        alt="GNU GRUB"
-        width="350"
-    >
-    </a>
+  <img
+      src="docs/preview.png"
+      alt="PREVIEW"
+  >
 </h1>
 
 <h4 align="center">
@@ -133,10 +130,6 @@ Update GRUB for UEFI boot:
 ```shell
 sudo grub2-mkconfig -o /etc/grub2-efi.cfg
 ```
-
-# Screenshot
-
-![screenshot](docs/preview.png?raw=true)
 
 # Related
 
