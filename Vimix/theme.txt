@@ -2,8 +2,7 @@
 
 # Global Property
 title-text: ""
-desktop-image: "background.jpeg"
-desktop-color: "#000000"
+desktop-color: "#1a1b29"
 terminal-font: "Unifont Regular 16"
 terminal-box: "terminal_box_*.png"
 terminal-left: "0"
@@ -14,10 +13,10 @@ terminal-border: "0"
 
 # Show the boot menu
 + boot_menu {
-  left = 30%
-  top = 30%
-  width = 45%
-  height = 60%
+  left = 25%
+  top = 33%
+  width = 50%
+  height = 33%
   item_font = "Unifont Regular 16"
   item_color = "#cccccc"
   selected_item_color = "#ffffff"
@@ -28,9 +27,9 @@ terminal-border: "0"
 
 # Show a countdown message using the label component
 + label {
-  top = 82%
-  left = 35%
-  width = 30%
+  top = 80%
+  left = 30%
+  width = 40%
   align = "center"
   id = "__timeout__"
   text = "Booting in %d seconds"
