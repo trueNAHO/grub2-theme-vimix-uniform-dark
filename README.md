@@ -136,7 +136,7 @@ sudo grub2-mkconfig -o /etc/grub2-efi.cfg
 
 # Screenshot
 
-![screenshot](/preview.jpg?raw=true)
+![screenshot](docs/preview.png?raw=true)
 
 # Related
 
