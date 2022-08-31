@@ -1,7 +1,7 @@
 # Maintainer: NAHO <90870942+trueNAHO@users.noreply.github.com>
 
 pkgname=grub-theme-vimix-very-dark-blue
-pkgver=r40.48d3fc0
+pkgver=r43.ca95c76
 pkgrel=1
 epoch=
 pkgdesc="Simple very dark blue GRUB theme"
@@ -34,8 +34,7 @@ pkgver() {
 }
 
 package() {
-  install -dm 755 \
-      "$pkgdir/usr/share/grub/themes/grub-theme-vimix-very-dark-blue"
+  install -dm 755 "$pkgdir/usr/share/grub/themes/$pkgname"
   cp -r --no-preserve=ownership grub2-theme-vimix-very-dark-blue/src/. \
-      "$pkgdir/usr/share/grub/themes/grub-theme-vimix-very-dark-blue"
+      "$pkgdir/usr/share/grub/themes/$pkgname"
 }
