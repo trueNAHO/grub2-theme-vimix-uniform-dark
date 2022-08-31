@@ -90,7 +90,7 @@
 
 <p align="center">
   <a href="#how-to-use">How to use</a> •
-  <a href="#how-to-use">Installed size</a> •
+  <a href="#installed-size">Installed size</a> •
   <a href="#related">Related</a> •
   <a href="#contrbuting">Contributing</a> •
   <a href="#license">License</a>
