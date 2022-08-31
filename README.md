@@ -107,6 +107,7 @@ package](https://aur.archlinux.org/packages/grub-theme-vimix-very-dark-blue):
 ```shell
 yay -S grub-theme-vimix-very-dark-blue
 ```
+
 ### git
 
 Install this repository inside a temporary directory using `git`:
