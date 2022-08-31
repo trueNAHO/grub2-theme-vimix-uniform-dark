@@ -89,14 +89,14 @@
 </p>
 
 <p align="center">
-  <a href="#how-to-use">How to use</a> •
-  <a href="#installed-size">Installed size</a> •
+  <a href="#how-to-use">How to Use</a> •
+  <a href="#installed-size">Installed Size</a> •
   <a href="#related">Related</a> •
   <a href="#contrbuting">Contributing</a> •
   <a href="#license">License</a>
 </p>
 
-# How to use
+# How to Use
 
 ## Installation
 
