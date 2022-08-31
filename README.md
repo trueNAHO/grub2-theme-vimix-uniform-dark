@@ -163,12 +163,12 @@ sudo grub2-mkconfig -o /etc/grub2-efi.cfg
 # Related
 
 - [Commitizen](http://commitizen.github.io/cz-cli/) - Simple commit conventions
-  for internet citizens.
-- [GNU GRUB](https://www.gnu.org/software/grub/) - A Multiboot boot loader.
+  for internet citizens
+- [GNU GRUB](https://www.gnu.org/software/grub/) - A Multiboot boot loader
 - [GRUB2 Theme Vimix](https://github.com/Se7endAY/grub2-theme-vimix) - A blur
   theme for GRUB
 - [pre-commit](https://pre-commit.com/) - A framework for managing and
-  maintaining multi-language pre-commit hooks.
+  maintaining multi-language pre-commit hooks
 
 # Contributing
 
