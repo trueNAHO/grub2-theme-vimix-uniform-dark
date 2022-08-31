@@ -107,6 +107,22 @@ package](https://aur.archlinux.org/packages/grub-theme-vimix-very-dark-blue):
 ```shell
 yay -S grub-theme-vimix-very-dark-blue
 ```
+### git
+
+Install this repository inside a temporary directory using `git`:
+
+```bash
+(
+  declare -r current_dir="$PWD" \
+      && declare -r tmp_dir="$(mktemp -d)" \
+      && cd "$tmp_dir" \
+      && git clone https://github.com/trueNAHO/grub2-theme-vimix-very-dark-blue.git \
+      && cd grub2-theme-vimix-very-dark-blue \
+      && makepkg -si \
+      && cd "$current_dir" \
+      && rm -fr "$tmp_dir"
+)
+```
 
 ## Setup
 
