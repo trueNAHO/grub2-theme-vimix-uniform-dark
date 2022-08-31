@@ -170,6 +170,9 @@ sudo grub2-mkconfig -o /etc/grub2-efi.cfg
   theme for GRUB
 - [pre-commit](https://pre-commit.com/) - Framework for managing and
   maintaining multi-language pre-commit hooks
+- [Fira Code](
+  https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode) -
+  Monospaced font
 
 # Contributing
 
