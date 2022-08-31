@@ -97,12 +97,25 @@
 
 # How to use
 
-## Arch Linux
+## Installation
+
+### AUR
+
+Install the [AUR
+package](https://aur.archlinux.org/packages/grub-theme-vimix-very-dark-blue):
+
+```shell
+yay -S grub-theme-vimix-very-dark-blue
+```
+
+## Setup
+
+### Arch Linux
 
 Edit `/etc/default/grub`:
 
 ```shell
-GRUB_THEME="/path/to/theme/src/theme.txt"
+GRUB_THEME="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"
 ```
 
 Update GRUB:
@@ -116,7 +129,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 Edit `/etc/default/grub`:
 
 ```shell
-GRUB_THEME="/path/to/theme/src/theme.txt"
+GRUB_THEME="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"
 ```
 
 Update GRUB:
