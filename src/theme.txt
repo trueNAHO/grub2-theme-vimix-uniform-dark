@@ -3,7 +3,7 @@
 # Global Property
 title-text: ""
 desktop-color: "#1a1b29"
-terminal-font: "Unifont Regular 16"
+terminal-font: "Fira Code Regular 18"
 terminal-box: "terminal_box_*.png"
 terminal-left: "0"
 terminal-top: "0"
@@ -17,7 +17,7 @@ terminal-border: "0"
   top = 33%
   width = 50%
   height = 33%
-  item_font = "Unifont Regular 16"
+  item_font = "Fira Code Regular 18"
   item_color = "#cccccc"
   selected_item_color = "#ffffff"
   item_height = 24
