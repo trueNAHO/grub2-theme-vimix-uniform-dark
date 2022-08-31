@@ -90,6 +90,7 @@
 
 <p align="center">
   <a href="#how-to-use">How to use</a> •
+  <a href="#how-to-use">Installed size</a> •
   <a href="#related">Related</a> •
   <a href="#contrbuting">Contributing</a> •
   <a href="#license">License</a>
@@ -161,6 +162,31 @@ Update GRUB for UEFI boot:
 sudo grub2-mkconfig -o /etc/grub2-efi.cfg
 ```
 
+# Installed Size
+
+Here is the file space usage for the installed theme. File space usage is
+measured using [dust](https://github.com/bootandy/dust). The first block shows
+the apparent size (file length instead of blocks). The second block shows the
+space usage (on my machine):
+
+```shell
+$ dust --apparent-size -n 5 -w 53
+1.4K     ┌── arcolinuxd.png        │       ░░█ │   1%
+2.0K     ├── freebsd.png           │       ░░█ │   2%
+ 27K   ┌─┴ icons                   │       ███ │  27%
+ 52K   ├── Fira_Code_Regular_18.pf2│    ██████ │  52%
+102K ┌─┴ .                         │██████████ │ 100%
+```
+
+```shell
+$ dust -n 5 -w 53
+4.0K   ┌── terminal_box_w.png      │         █ │   1%
+4.0K   ├── theme.txt               │         █ │   1%
+ 56K   ├── Fira_Code_Regular_18.pf2│       ███ │  21%
+136K   ├── icons                   │    ██████ │  50%
+272K ┌─┴ .                         │██████████ │ 100%
+```
+
 # Related
 
 - [Commitizen](http://commitizen.github.io/cz-cli/) - Simple commit conventions
@@ -171,6 +197,8 @@ sudo grub2-mkconfig -o /etc/grub2-efi.cfg
 - [GNU GRUB](https://www.gnu.org/software/grub/) - Multiboot boot loader
 - [GRUB2 Theme Vimix](https://github.com/Se7endAY/grub2-theme-vimix) - Blur
   theme for GRUB
+- [dust](https://github.com/bootandy/dust) - `du` + Rust = `dust`. Like `du`,
+  but more intuitive.
 - [pre-commit](https://pre-commit.com/) - Framework for managing and
   maintaining multi-language pre-commit hooks
 
