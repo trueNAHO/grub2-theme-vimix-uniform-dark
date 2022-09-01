@@ -171,20 +171,20 @@ space usage (on my machine):
 
 ```shell
 $ dust --apparent-size -n 5 -w 53
-1.4K     ┌── arcolinuxd.png        │       ░░█ │   1%
-2.0K     ├── freebsd.png           │       ░░█ │   2%
- 27K   ┌─┴ icons                   │       ███ │  27%
- 52K   ├── Fira_Code_Regular_18.pf2│    ██████ │  52%
-102K ┌─┴ .                         │██████████ │ 100%
+1.4K     ┌── arcolinuxd.png       │        ░░█ │   1%
+2.0K     ├── freebsd.png          │        ░░█ │   2%
+ 27K   ┌─┴ icons                  │        ███ │  27%
+ 53K   ├── Fira_Code_Medium_18.pf2│     ██████ │  52%
+103K ┌─┴ .                        │███████████ │ 100%
 ```
 
 ```shell
 $ dust -n 5 -w 53
-4.0K   ┌── terminal_box_w.png      │         █ │   1%
-4.0K   ├── theme.txt               │         █ │   1%
- 56K   ├── Fira_Code_Regular_18.pf2│       ███ │  21%
-136K   ├── icons                   │    ██████ │  50%
-272K ┌─┴ .                         │██████████ │ 100%
+4.0K   ┌── terminal_box_w.png     │          █ │   1%
+4.0K   ├── theme.txt              │          █ │   1%
+ 56K   ├── Fira_Code_Medium_18.pf2│        ███ │  21%
+136K   ├── icons                  │     ██████ │  50%
+272K ┌─┴ .                        │███████████ │ 100%
 ```
 
 # Related
