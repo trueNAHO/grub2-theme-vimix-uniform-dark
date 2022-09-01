@@ -34,5 +34,5 @@ terminal-border: "0"
   id = "__timeout__"
   text = "Booting in %d seconds"
   color = "#cccccc"
-  font = "Unifont Regular 16"
+  font = "Fira Code Regular 18"
 }
