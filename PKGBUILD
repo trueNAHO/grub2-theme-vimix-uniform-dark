@@ -14,8 +14,9 @@ source=("git+$url")
 md5sums=('SKIP')
 
 pkgver() {
-  printf "1.0.0.r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
   cd "$srcdir/$pkgname" || return
+  printf "1.0.0.r%s.%s" "$(git rev-list --count HEAD)" \
+      "$(git rev-parse --short HEAD)"
 }
 
 package() {
