@@ -3,27 +3,15 @@
 pkgname=grub-theme-vimix-very-dark-blue
 pkgver=1.0.0
 pkgrel=1
-epoch=
 pkgdesc="Simple very dark blue GRUB theme"
 arch=(any)
 url="https://github.com/trueNAHO/grub2-theme-vimix-very-dark-blue"
 license=(GPL3)
-groups=()
 depends=(grub)
 makedepends=(git)
-checkdepends=()
 optdepends=('grub-customizer: GUI tool to configure GRUB')
-provides=()
-conflicts=()
-replaces=()
-backup=()
-options=()
-install=
-changelog=
 source=("git+$url")
-noextract=()
 md5sums=('SKIP')
-validpgpkeys=()
 
 pkgver() {
   cd "$_pkgname"
