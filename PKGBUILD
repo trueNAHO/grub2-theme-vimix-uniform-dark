@@ -7,9 +7,10 @@ pkgdesc="Simple very dark blue GRUB theme"
 arch=(any)
 url="https://github.com/trueNAHO/grub2-theme-vimix-very-dark-blue"
 license=(GPL3)
-depends=(grub)
+depends=(bash grub)
 makedepends=(git)
 optdepends=('grub-customizer: GUI tool to configure GRUB')
+install="$pkgname.install"
 source=("$pkgname::git+$url")
 md5sums=(SKIP)
 
