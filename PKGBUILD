@@ -10,8 +10,8 @@ license=(GPL3)
 depends=(grub)
 makedepends=(git)
 optdepends=('grub-customizer: GUI tool to configure GRUB')
-source=("git+$url")
-md5sums=('SKIP')
+source=("$pkgname::git+$url")
+md5sums=(SKIP)
 
 pkgver() {
   cd "$srcdir/$pkgname" || return
@@ -20,7 +20,8 @@ pkgver() {
 }
 
 package() {
-  install -dm 755 "$pkgdir/usr/share/grub/themes/$pkgname"
-  cp -r --no-preserve=ownership grub2-theme-vimix-very-dark-blue/src/. \
-      "$pkgdir/usr/share/grub/themes/$pkgname"
+  declare -r _pkgdir="$pkgdir/usr/share/grub/themes/$pkgname"
+
+  install -dm 755 "$_pkgdir"
+  cp -r --no-preserve=ownership "$srcdir/$pkgname/src/." "$_pkgdir"
 }
