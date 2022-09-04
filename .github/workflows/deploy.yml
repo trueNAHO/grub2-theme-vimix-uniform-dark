@@ -32,7 +32,7 @@ jobs:
           cat -n ./PKGBUILD
 
       - name: Publish AUR package
-        uses: KSXGitHub/github-actions-deploy-aur@2.5.0
+        uses: KSXGitHub/github-actions-deploy-aur@v2.5.0
         with:
           pkgname: grub-theme-vimix-very-dark-blue
           pkgbuild: ./PKGBUILD
