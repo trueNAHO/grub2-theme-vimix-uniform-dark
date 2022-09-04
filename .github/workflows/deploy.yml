@@ -1,0 +1,44 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  aur-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Generate PKGBUILD
+        env:
+          srcdir: ..
+        run: |
+          # Simulate PKGBUILD environment.
+          source ./PKGBUILD
+          # Set `$pkgver` using `pkgver()` if it exists.
+          declare -F pkgver 1>/dev/null && pkgver=$(pkgver)
+          # Export `$pkgver` variable.
+          printf '%s\n' "pkgver=$pkgver" >> "$GITHUB_ENV"
+          # Overwrite PKGBUILD with new variable.
+          awk -i inplace -v pkgver="$pkgver" \
+              '/^pkgver=/ {print "pkgver=" pkgver; next}; 1' \
+              ./PKGBUILD
+          # Print PKGBUILD to stdout.
+          cat -n ./PKGBUILD
+
+      - name: Publish AUR package
+        uses: KSXGitHub/github-actions-deploy-aur@2.5.0
+        with:
+          pkgname: grub-theme-vimix-very-dark-blue
+          pkgbuild: ./PKGBUILD
+          assests: ./grub-theme-vimix-very-dark-blue.install
+          commit_username: ${{ secrets.AUR_USERNAME }}
+          commit_email: ${{ secrets.AUR_EMAIL }}
+          ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
+          commit_message: "Update AUR package to version ${{ env.pkgver }}"
+
