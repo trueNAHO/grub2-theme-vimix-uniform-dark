@@ -2,17 +2,17 @@
 
 readonly DEFAULT_GRUB="/etc/default/grub"
 readonly GRUB_CFG="/boot/grub/grub.cfg"
+readonly GRUB_THEME_SEARCH_PATTERN='^GRUB_THEME="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"'
+readonly THEME_INSTALL_DIR="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue"
 
 # Print lines from `$DEFAULT_GRUB` that match this theme.
 _grep_theme_in_default_grub() {
-    readonly PATTERN='^GRUB_THEME="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"'
-    grep -P -n "$PATTERN" "$DEFAULT_GRUB"
+    grep -P -n "$GRUB_THEME_SEARCH_PATTERN" "$DEFAULT_GRUB"
 }
 
 # Print lines from `$GRUB_CFG` that match this theme.
 _grep_theme_in_grub_cfg() {
-    readonly PATTERN="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue"
-    grep -F -n "$PATTERN" "$GRUB_CFG"
+    grep -F -n "$THEME_INSTALL_DIR" "$GRUB_CFG"
 }
 
 # Use the `grub-mkconfig` tool to generate `$GRUB_CFG`.
