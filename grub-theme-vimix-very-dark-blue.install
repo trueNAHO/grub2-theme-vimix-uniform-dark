@@ -5,6 +5,50 @@ readonly GRUB_CFG="/boot/grub/grub.cfg"
 readonly GRUB_THEME_SEARCH_PATTERN='^GRUB_THEME="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"'
 readonly THEME_INSTALL_DIR="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue"
 
+# Generate `$GRUB_CFG` if both `$GRUB_CFG` and `$DEFAULT_GRUB` use this theme.
+# This covers the case when uninstalling and reinstalling the package instead of
+# upgrading it. Also greet the user with setup instructions if this theme is not
+# already in use. This mostly applies to first-time users of this theme.
+post_install() {
+    _grub_mkconfig_smart
+
+    # Greet the user with setup instructions if this theme is not already in
+    # use. This mostly applies to first-time users of this theme.
+    if ! _is_use_theme; then
+        _status "The following instructions setup GRUB to use this theme."
+        _status "Edit the following line in $DEFAULT_GRUB:"
+        _status 'GRUB_THEME="'$(
+        )'/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"'
+        _status "Update GRUB by running the following command:"
+        _status "grub-mkconfig -o $GRUB_CFG"
+    fi
+}
+
+# Generate `$GRUB_CFG` if both `$GRUB_CFG` and `$DEFAULT_GRUB` use this theme.
+post_upgrade() {
+    _grub_mkconfig_smart
+}
+
+# Warn user in case GRUB still uses this theme after uninstalling it.
+post_remove() {
+    # Check if `$GRUB_CFG` uses this theme.
+    if _is_grub_cfg_use_theme; then
+        _status_error "$GRUB_CFG still mentions this theme."
+        _grep_theme_in_grub_cfg
+        _status_error "Make sure to fix this ASAP! Best BEFORE rebooting!"
+    fi
+
+    # Check if `$DEFAULT_GRUB` uses this theme.
+    if _is_default_grub_use_theme; then
+        _status_error "$DEFAULT_GRUB still mentions this theme."
+        _grep_theme_in_default_grub
+        _status_error \
+            "Make sure to either replace this theme or to disable GRUB" \
+            "themes by commenting the line containing 'GRUB_THEME=' in" \
+            "$DEFAULT_GRUB"
+    fi
+}
+
 # Print lines from `$DEFAULT_GRUB` that match this theme.
 _grep_theme_in_default_grub() {
     grep -P -n "$GRUB_THEME_SEARCH_PATTERN" "$DEFAULT_GRUB"
@@ -56,48 +100,4 @@ _status() {
 # Print status messages to stdout. All arguments form one status message.
 _status_error() {
     _status "$@" >&2
-}
-
-# Generate `$GRUB_CFG` if both `$GRUB_CFG` and `$DEFAULT_GRUB` use this theme.
-# This covers the case when uninstalling and reinstalling the package instead of
-# upgrading it. Also greet the user with setup instructions if this theme is not
-# already in use. This mostly applies to first-time users of this theme.
-post_install() {
-    _grub_mkconfig_smart
-
-    # Greet the user with setup instructions if this theme is not already in
-    # use. This mostly applies to first-time users of this theme.
-    if ! _is_use_theme; then
-        _status "The following instructions setup GRUB to use this theme."
-        _status "Edit the following line in $DEFAULT_GRUB:"
-        _status 'GRUB_THEME="'$(
-        )'/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"'
-        _status "Update GRUB by running the following command:"
-        _status "grub-mkconfig -o $GRUB_CFG"
-    fi
-}
-
-# Generate `$GRUB_CFG` if both `$GRUB_CFG` and `$DEFAULT_GRUB` use this theme.
-post_upgrade() {
-    _grub_mkconfig_smart
-}
-
-# Warn user in case GRUB still uses this theme after uninstalling it.
-post_remove() {
-    # Check if `$GRUB_CFG` uses this theme.
-    if _is_grub_cfg_use_theme; then
-        _status_error "$GRUB_CFG still mentions this theme."
-        _grep_theme_in_grub_cfg
-        _status_error "Make sure to fix this ASAP! Best BEFORE rebooting!"
-    fi
-
-    # Check if `$DEFAULT_GRUB` uses this theme.
-    if _is_default_grub_use_theme; then
-        _status_error "$DEFAULT_GRUB still mentions this theme."
-        _grep_theme_in_default_grub
-        _status_error \
-            "Make sure to either replace this theme or to disable GRUB" \
-            "themes by commenting the line containing 'GRUB_THEME=' in" \
-            "$DEFAULT_GRUB"
-    fi
 }
