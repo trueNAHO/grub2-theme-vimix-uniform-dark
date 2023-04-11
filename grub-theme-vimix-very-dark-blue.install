@@ -32,10 +32,10 @@
 #     This script assumes that the theme is located at
 #     `/usr/share/grub/themes/grub-theme-vimix-very-dark-blue`.
 
-readonly DEFAULT_GRUB="/etc/default/grub"
-readonly GRUB_CFG="/boot/grub/grub.cfg"
+readonly GRUB_THEME_CFG_PATH="/boot/grub/grub.cfg"
+readonly GRUB_THEME_DEFAULT_PATH="/etc/default/grub"
+readonly GRUB_THEME_INSTALL_PATH="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue"
 readonly GRUB_THEME_SEARCH_PATTERN='^GRUB_THEME="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"'
-readonly THEME_INSTALL_DIR="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue"
 
 # Generate the GRUB configuration file with superuser privileges if this theme
 # is in use. If this theme is newly installed, provide setup instructions to the
@@ -47,11 +47,11 @@ post_install() {
 
     if ! _is_use_theme; then
         _status "The following instructions setup GRUB to use this theme."
-        _status "Edit the following line in $DEFAULT_GRUB:"
+        _status "Edit the following line in $GRUB_THEME_DEFAULT_PATH:"
         _status 'GRUB_THEME="'$(
         )'/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"'
         _status "Update GRUB by running the following command:"
-        _status "grub-mkconfig -o $GRUB_CFG"
+        _status "grub-mkconfig -o $GRUB_THEME_CFG_PATH"
     fi
 }
 
@@ -69,18 +69,18 @@ post_upgrade() {
 # Usage: post_remove
 post_remove() {
     if _is_use_theme_grub_cfg; then
-        _status_error "$GRUB_CFG still mentions this theme."
+        _status_error "$GRUB_THEME_CFG_PATH still mentions this theme."
         _grep_theme_in_grub_cfg
         _status_error "Make sure to fix this ASAP! Best BEFORE rebooting!"
     fi
 
     if _is_use_theme_default_grub; then
-        _status_error "$DEFAULT_GRUB still mentions this theme."
+        _status_error "$GRUB_THEME_DEFAULT_PATH still mentions this theme."
         _grep_theme_in_default_grub
         _status_error \
             "Make sure to either replace this theme or to disable GRUB" \
             "themes by commenting the line containing 'GRUB_THEME=' in" \
-            "$DEFAULT_GRUB"
+            "$GRUB_THEME_DEFAULT_PATH"
     fi
 }
 
@@ -88,21 +88,21 @@ post_remove() {
 #
 # Usage: _grep_theme_in_default_grub
 _grep_theme_in_default_grub() {
-    grep -P -n "$GRUB_THEME_SEARCH_PATTERN" "$DEFAULT_GRUB"
+    grep -P -n "$GRUB_THEME_SEARCH_PATTERN" "$GRUB_THEME_DEFAULT_PATH"
 }
 
 # Print lines from the current GRUB configuration file that match this theme.
 #
 # Usage: _grep_theme_in_grub_cfg
 _grep_theme_in_grub_cfg() {
-    grep -F -n "$THEME_INSTALL_DIR" "$GRUB_CFG"
+    grep -F -n "$GRUB_THEME_INSTALL_PATH" "$GRUB_THEME_CFG_PATH"
 }
 
 # Generate the GRUB configuration file with superuser privileges.
 #
 # Usage: _grub_mkconfig
 _grub_mkconfig() {
-    sudo grub-mkconfig -o "$GRUB_CFG"
+    sudo grub-mkconfig -o "$GRUB_THEME_CFG_PATH"
 }
 
 # Generate the GRUB configuration file with superuser privileges if this theme
@@ -111,7 +111,7 @@ _grub_mkconfig() {
 # Usage: _grub_mkconfig_smart
 _grub_mkconfig_smart() {
     if _is_use_theme; then
-        _status "Use the 'grub-mkconfig' tool to generate '$GRUB_CFG'"
+        _status "Use the 'grub-mkconfig' tool to generate '$GRUB_THEME_CFG_PATH'"
         _grub_mkconfig
     fi
 }
