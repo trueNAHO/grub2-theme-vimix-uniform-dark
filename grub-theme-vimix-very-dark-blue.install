@@ -1,47 +1,47 @@
 #!/bin/sh
 
-readonly _DEFAULT_GRUB="/etc/default/grub"
-readonly _GRUB_CFG="/boot/grub/grub.cfg"
+readonly DEFAULT_GRUB="/etc/default/grub"
+readonly GRUB_CFG="/boot/grub/grub.cfg"
 
-# Print lines from `$_DEFAULT_GRUB` that match this theme.
+# Print lines from `$DEFAULT_GRUB` that match this theme.
 _grep_theme_in_default_grub() {
-    readonly _PATTERN='^GRUB_THEME="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"'
-    grep -P -n "$_PATTERN" "$_DEFAULT_GRUB"
+    readonly PATTERN='^GRUB_THEME="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"'
+    grep -P -n "$PATTERN" "$DEFAULT_GRUB"
 }
 
-# Print lines from `$_GRUB_CFG` that match this theme.
+# Print lines from `$GRUB_CFG` that match this theme.
 _grep_theme_in_grub_cfg() {
-    readonly _PATTERN="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue"
-    grep -F -n "$_PATTERN" "$_GRUB_CFG"
+    readonly PATTERN="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue"
+    grep -F -n "$PATTERN" "$GRUB_CFG"
 }
 
-# Use the `grub-mkconfig` tool to generate `$_GRUB_CFG`.
+# Use the `grub-mkconfig` tool to generate `$GRUB_CFG`.
 _grub_mkconfig() {
-    sudo grub-mkconfig -o "$_GRUB_CFG"
+    sudo grub-mkconfig -o "$GRUB_CFG"
 }
 
-# Use the `grub-mkconfig` tool to generate `$_GRUB_CFG` only if this theme is
+# Use the `grub-mkconfig` tool to generate `$GRUB_CFG` only if this theme is
 # used.
 _grub_mkconfig_smart() {
     if _is_use_theme; then
-        _status "Use the 'grub-mkconfig' tool to generate '$_GRUB_CFG'"
+        _status "Use the 'grub-mkconfig' tool to generate '$GRUB_CFG'"
         _grub_mkconfig
     fi
 }
 
-# Return true if `$_DEFAULT_GRUB` uses this theme. Otherwise return false.
+# Return true if `$DEFAULT_GRUB` uses this theme. Otherwise return false.
 _is_default_grub_use_theme() {
     _grep_theme_in_default_grub 1>/dev/null
     return $?
 }
 
-# Return true if `$_GRUB_CFG` uses this theme. Otherwise return false.
+# Return true if `$GRUB_CFG` uses this theme. Otherwise return false.
 _is_grub_cfg_use_theme() {
     _grep_theme_in_grub_cfg 1>/dev/null
     return $?
 }
 
-# Return true if `$_GRUB_CFG` and `$_DEFAULT_GRUB` use this theme. Otherwise
+# Return true if `$GRUB_CFG` and `$DEFAULT_GRUB` use this theme. Otherwise
 # return false.
 _is_use_theme() {
     _is_default_grub_use_theme && _is_grub_cfg_use_theme
@@ -58,11 +58,10 @@ _status_error() {
     _status "$@" >&2
 }
 
-# Generate `$_GRUB_CFG` if both `$_GRUB_CFG` and `$_DEFAULT_GRUB` use this
-# theme. This covers the case when uninstalling and reinstalling the package
-# instead of upgrading it. Also greet the user with setup instructions if this
-# theme is not already in use. This mostly applies to first-time users of this
-# theme.
+# Generate `$GRUB_CFG` if both `$GRUB_CFG` and `$DEFAULT_GRUB` use this theme.
+# This covers the case when uninstalling and reinstalling the package instead of
+# upgrading it. Also greet the user with setup instructions if this theme is not
+# already in use. This mostly applies to first-time users of this theme.
 post_install() {
     _grub_mkconfig_smart
 
@@ -70,36 +69,35 @@ post_install() {
     # use. This mostly applies to first-time users of this theme.
     if ! _is_use_theme; then
         _status "The following instructions setup GRUB to use this theme."
-        _status "Edit the following line in $_DEFAULT_GRUB:"
+        _status "Edit the following line in $DEFAULT_GRUB:"
         _status 'GRUB_THEME="'$(
         )'/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"'
         _status "Update GRUB by running the following command:"
-        _status "grub-mkconfig -o $_GRUB_CFG"
+        _status "grub-mkconfig -o $GRUB_CFG"
     fi
 }
 
-# Generate `$_GRUB_CFG` if both `$_GRUB_CFG` and `$_DEFAULT_GRUB` use this
-# theme.
+# Generate `$GRUB_CFG` if both `$GRUB_CFG` and `$DEFAULT_GRUB` use this theme.
 post_upgrade() {
     _grub_mkconfig_smart
 }
 
 # Warn user in case GRUB still uses this theme after uninstalling it.
 post_remove() {
-    # Check if `$_GRUB_CFG` uses this theme.
+    # Check if `$GRUB_CFG` uses this theme.
     if _is_grub_cfg_use_theme; then
-        _status_error "$_GRUB_CFG still mentions this theme."
+        _status_error "$GRUB_CFG still mentions this theme."
         _grep_theme_in_grub_cfg
         _status_error "Make sure to fix this ASAP! Best BEFORE rebooting!"
     fi
 
-    # Check if `$_DEFAULT_GRUB` uses this theme.
+    # Check if `$DEFAULT_GRUB` uses this theme.
     if _is_default_grub_use_theme; then
-        _status_error "$_DEFAULT_GRUB still mentions this theme."
+        _status_error "$DEFAULT_GRUB still mentions this theme."
         _grep_theme_in_default_grub
         _status_error \
             "Make sure to either replace this theme or to disable GRUB" \
             "themes by commenting the line containing 'GRUB_THEME=' in" \
-            "$_DEFAULT_GRUB"
+            "$DEFAULT_GRUB"
     fi
 }
