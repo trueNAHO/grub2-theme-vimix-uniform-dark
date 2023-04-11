@@ -8,7 +8,7 @@ pkgdesc="Simple very dark blue GRUB theme"
 arch=(any)
 url="https://github.com/trueNAHO/$_pkgname"
 license=(GPL3)
-depends=(bash grep grub sudo)
+depends=(grep grub sudo)
 makedepends=(git)
 optdepends=(
     'efibootmgr: Linux user-space application to modify the EFI Boot Manager'
