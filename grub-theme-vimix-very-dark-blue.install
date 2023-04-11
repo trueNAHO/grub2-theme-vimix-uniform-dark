@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
-declare -r _default_grub="/etc/default/grub"
-declare -r _grub_cfg="/boot/grub/grub.cfg"
+readonly _default_grub="/etc/default/grub"
+readonly _grub_cfg="/boot/grub/grub.cfg"
 
 # Print lines from `$_default_grub` that match this theme.
 _grep_theme_in_default_grub() {
-    declare -r _pattern='^GRUB_THEME="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"'
+    readonly _pattern='^GRUB_THEME="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"'
     grep -P -n "$_pattern" "$_default_grub"
 }
 
 # Print lines from `$_grub_cfg` that match this theme.
 _grep_theme_in_grub_cfg() {
-    declare -r _pattern="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue"
+    readonly _pattern="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue"
     grep -F -n "$_pattern" "$_grub_cfg"
 }
 
