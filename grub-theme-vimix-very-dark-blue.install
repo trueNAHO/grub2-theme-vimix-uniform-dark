@@ -68,13 +68,13 @@ post_upgrade() {
 #
 # Usage: post_remove
 post_remove() {
-    if _is_grub_cfg_use_theme; then
+    if _is_use_theme_grub_cfg; then
         _status_error "$GRUB_CFG still mentions this theme."
         _grep_theme_in_grub_cfg
         _status_error "Make sure to fix this ASAP! Best BEFORE rebooting!"
     fi
 
-    if _is_default_grub_use_theme; then
+    if _is_use_theme_default_grub; then
         _status_error "$DEFAULT_GRUB still mentions this theme."
         _grep_theme_in_default_grub
         _status_error \
@@ -118,16 +118,16 @@ _grub_mkconfig_smart() {
 
 # Return true if the default GRUB theme uses this theme, otherwise return false.
 #
-# Usage: _is_default_grub_use_theme
-_is_default_grub_use_theme() {
+# Usage: _is_use_theme_default_grub
+_is_use_theme_default_grub() {
     _grep_theme_in_default_grub 1>/dev/null
     return $?
 }
 
 # Return true if the current GRUB theme uses this theme, otherwise return false.
 #
-# Usage: _is_grub_cfg_use_theme
-_is_grub_cfg_use_theme() {
+# Usage: _is_use_theme_grub_cfg
+_is_use_theme_grub_cfg() {
     _grep_theme_in_grub_cfg 1>/dev/null
     return $?
 }
@@ -137,7 +137,7 @@ _is_grub_cfg_use_theme() {
 #
 # Usage: _is_use_theme
 _is_use_theme() {
-    _is_default_grub_use_theme && _is_grub_cfg_use_theme
+    _is_use_theme_default_grub && _is_use_theme_grub_cfg
     return $?
 }
 
