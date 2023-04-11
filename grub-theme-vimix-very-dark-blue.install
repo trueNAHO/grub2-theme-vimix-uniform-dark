@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 readonly _default_grub="/etc/default/grub"
 readonly _grub_cfg="/boot/grub/grub.cfg"
