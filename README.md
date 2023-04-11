@@ -199,8 +199,6 @@ $ dust -n 5 -w 53
   theme for GRUB
 - [dust](https://github.com/bootandy/dust) - `du` + Rust = `dust`. Like `du`,
   but more intuitive.
-- [pre-commit](https://pre-commit.com/) - Framework for managing and
-  maintaining multi-language pre-commit hooks
 
 # Contributing
 
