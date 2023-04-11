@@ -33,9 +33,11 @@
 #     `/usr/share/grub/themes/grub-theme-vimix-very-dark-blue`.
 
 readonly GRUB_THEME_CFG_PATH="/boot/grub/grub.cfg"
+readonly GRUB_THEME_CONFIG_LINE='GRUB_THEME="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"'
 readonly GRUB_THEME_DEFAULT_PATH="/etc/default/grub"
 readonly GRUB_THEME_INSTALL_PATH="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue"
-readonly GRUB_THEME_SEARCH_PATTERN='^GRUB_THEME="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"'
+
+readonly GRUB_THEME_SEARCH_PATTERN="^$GRUB_THEME_CONFIG_LINE"
 
 # Generate the GRUB configuration file with superuser privileges if this theme
 # is in use. If this theme is newly installed, provide setup instructions to the
@@ -46,12 +48,16 @@ post_install() {
     _grub_mkconfig_smart
 
     if ! _is_use_theme; then
-        _status "The following instructions setup GRUB to use this theme."
-        _status "Edit the following line in $GRUB_THEME_DEFAULT_PATH:"
-        _status 'GRUB_THEME="'$(
-        )'/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"'
-        _status "Update GRUB by running the following command:"
-        _status "grub-mkconfig -o $GRUB_THEME_CFG_PATH"
+        _status \
+            "This GRUB theme is currently installed, but not being used." \
+            ""
+            "To apply this theme, update the 'GRUB_THEME' line in the '$GRUB_THEME_DEFAULT_PATH' file to the following:" \
+            "$GRUB_THEME_CONFIG_LINE" \
+            "" \
+            "Then, generate the GRBU configuration file with superuser privileges by running the following command:" \
+            "sudo grub-mkconfig -o '$GRUB_THEME_CFG_PATH'" \
+            "" \
+            "The system will start using the new theme after the next reboot."
     fi
 }
 
@@ -69,18 +75,15 @@ post_upgrade() {
 # Usage: post_remove
 post_remove() {
     if _is_use_theme_grub_cfg; then
-        _status_error "$GRUB_THEME_CFG_PATH still mentions this theme."
+        _status_error "The current GRUB configuration file '$GRUB_THEME_CFG_PATH' still references this theme in the following line(s):"
         _grep_theme_in_grub_cfg
-        _status_error "Make sure to fix this ASAP! Best BEFORE rebooting!"
+        _status_error "Please remove any reference to this theme from the current GRUB configuration file as soon as possible. It is recommended to do this before rebooting!"
     fi
 
     if _is_use_theme_default_grub; then
-        _status_error "$GRUB_THEME_DEFAULT_PATH still mentions this theme."
+        _status_error "The default GRUB configuration file '$GRUB_THEME_DEFAULT_PATH' still references this theme in the following line(s):"
         _grep_theme_in_default_grub
-        _status_error \
-            "Make sure to either replace this theme or to disable GRUB" \
-            "themes by commenting the line containing 'GRUB_THEME=' in" \
-            "$GRUB_THEME_DEFAULT_PATH"
+        _status_error "Please either replace this theme with another one, or disable custom GRUB themes by commenting out this line."
     fi
 }
 
@@ -111,7 +114,9 @@ _grub_mkconfig() {
 # Usage: _grub_mkconfig_smart
 _grub_mkconfig_smart() {
     if _is_use_theme; then
-        _status "Use the 'grub-mkconfig' tool to generate '$GRUB_THEME_CFG_PATH'"
+        _status \
+            "Generating the GRUB configuration file with superuser privileges by running the following command:" \
+            "sudo grub-mkconfig -o $GRUB_THEME_CFG_PATH"
         _grub_mkconfig
     fi
 }
