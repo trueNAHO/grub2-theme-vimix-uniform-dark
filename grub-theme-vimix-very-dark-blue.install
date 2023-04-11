@@ -94,7 +94,7 @@ _is_use_theme() {
 
 # Print status messages. All arguments form one status message.
 _status() {
-    printf 'grub-theme-vimix-very-dark-blue: %s\n' "$*"
+    printf 'grub-theme-vimix-very-dark-blue: %s\n' "$@"
 }
 
 # Print status messages to stdout. All arguments form one status message.
