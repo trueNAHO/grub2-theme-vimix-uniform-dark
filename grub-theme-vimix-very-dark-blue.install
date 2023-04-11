@@ -120,7 +120,7 @@ _grub_mkconfig_smart() {
 #
 # Usage: _is_use_theme_default_grub
 _is_use_theme_default_grub() {
-    _grep_theme_in_default_grub 1>/dev/null
+    _grep_theme_in_default_grub >/dev/null
     return $?
 }
 
@@ -128,7 +128,7 @@ _is_use_theme_default_grub() {
 #
 # Usage: _is_use_theme_grub_cfg
 _is_use_theme_grub_cfg() {
-    _grep_theme_in_grub_cfg 1>/dev/null
+    _grep_theme_in_grub_cfg >/dev/null
     return $?
 }
 
