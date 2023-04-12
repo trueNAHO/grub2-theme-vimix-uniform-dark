@@ -26,8 +26,8 @@ pkgver() {
 }
 
 package() {
-  declare -r _pkgdir="$pkgdir/usr/share/grub/themes/$pkgname"
+  declare -r _package_install_path="$pkgdir/usr/share/grub/themes/$pkgname"
 
-  install -dm 755 "$_pkgdir"
-  cp -r --no-preserve=ownership "$srcdir/$_pkgname/src/." "$_pkgdir"
+  install -dm 755 "$_package_install_path"
+  cp -r --no-preserve=ownership "$srcdir/$_pkgname/src/." "$_package_install_path"
 }
