@@ -28,10 +28,11 @@ pkgver() {
 package() {
     readonly PACKAGE_INSTALL_PATH="$pkgdir/usr/share/grub/themes/$pkgname"
 
-    install -dm 755 "$PACKAGE_INSTALL_PATH"
+    install --directory --mode 755 "$PACKAGE_INSTALL_PATH"
 
     cp \
-        -r --no-preserve=ownership \
+        --no-preserve=ownership \
+        --recursive \
         "$srcdir/$_pkgname/src/." \
         "$PACKAGE_INSTALL_PATH"
 }
