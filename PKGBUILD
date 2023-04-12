@@ -26,8 +26,8 @@ pkgver() {
 }
 
 package() {
-  readonly _package_install_path="$pkgdir/usr/share/grub/themes/$pkgname"
+  readonly _PACKAGE_INSTALL_PATH="$pkgdir/usr/share/grub/themes/$pkgname"
 
-  install -dm 755 "$_package_install_path"
-  cp -r --no-preserve=ownership "$srcdir/$_pkgname/src/." "$_package_install_path"
+  install -dm 755 "$_PACKAGE_INSTALL_PATH"
+  cp -r --no-preserve=ownership "$srcdir/$_pkgname/src/." "$_PACKAGE_INSTALL_PATH"
 }
