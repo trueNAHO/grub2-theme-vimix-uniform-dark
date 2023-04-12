@@ -20,14 +20,18 @@ source=("git+$url")
 md5sums=(SKIP)
 
 pkgver() {
-  cd "$srcdir/$_pkgname" || return
-  printf "1.0.0.r%s.%s" "$(git rev-list --count HEAD)" \
-      "$(git rev-parse --short HEAD)"
+    cd "$srcdir/$_pkgname" || return
+    printf "1.0.0.r%s.%s" "$(git rev-list --count HEAD)" \
+        "$(git rev-parse --short HEAD)"
 }
 
 package() {
-  readonly PACKAGE_INSTALL_PATH="$pkgdir/usr/share/grub/themes/$pkgname"
+    readonly PACKAGE_INSTALL_PATH="$pkgdir/usr/share/grub/themes/$pkgname"
 
-  install -dm 755 "$PACKAGE_INSTALL_PATH"
-  cp -r --no-preserve=ownership "$srcdir/$_pkgname/src/." "$PACKAGE_INSTALL_PATH"
+    install -dm 755 "$PACKAGE_INSTALL_PATH"
+
+    cp \
+        -r --no-preserve=ownership \
+        "$srcdir/$_pkgname/src/." \
+        "$PACKAGE_INSTALL_PATH"
 }
