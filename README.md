@@ -1,209 +1,169 @@
 <h1 align="center">
-  <img
-      src="docs/preview.png"
-      alt="PREVIEW"
-  >
+  Simple, very dark blue
+  <a href="https://www.gnu.org/software/grub/">GRUB</a> theme.
 </h1>
 
-<h4 align="center">
-  GRUB2 Theme Vimix Very Dark Blue
-</h4>
-
 <p align="center">
-  <a href="docs/CONTRIBUTING.md">
-    <img
-        src="https://badgen.net/badge/PRs/welcome"
-        alt="PRs are welcome"
-    >
-  </a>
-
-  <a href="http://commitizen.github.io/cz-cli/">
-    <img
-        src="https://badgen.net/badge/Commitizen/friendly"
-        alt="Commitizen friendly"
-    >
-  </a>
-
-  <a href="https://badgen.net/github/stars/trueNAHO/grub2-theme-vimix-very-dark-blue?cache=0">
-    <img
-        src="https://badgen.net/github/stars/trueNAHO/grub2-theme-vimix-very-dark-blue?cache=0"
-        alt="stars: N/A"
-    >
-  </a>
-
-  <a href="https://badgen.net/github/watchers/trueNAHO/grub2-theme-vimix-very-dark-blue?cache=0">
-    <img
-        src="https://badgen.net/github/watchers/trueNAHO/grub2-theme-vimix-very-dark-blue?cache=0"
-        alt="watchers: N/A"
-    >
-  </a>
-
-  <a href="https://badgen.net/github/contributors/trueNAHO/grub2-theme-vimix-very-dark-blue?cache=0">
-    <img
-        src="https://badgen.net/github/contributors/trueNAHO/grub2-theme-vimix-very-dark-blue?cache=0"
-        alt="contributors: N/A"
-    >
-  </a>
-
-  <a href="https://badgen.net/github/branches/trueNAHO/grub2-theme-vimix-very-dark-blue?cache=0">
-    <img
-        src="https://badgen.net/github/branches/trueNAHO/grub2-theme-vimix-very-dark-blue?cache=0"
-        alt="branches: N/A"
-    >
-  </a>
-
-  <a href="https://badgen.net/github/last-commit/trueNAHO/grub2-theme-vimix-very-dark-blue/master?cache=0">
-    <img
-        src="https://badgen.net/github/last-commit/trueNAHO/grub2-theme-vimix-very-dark-blue/master?cache=0"
-        alt="last commit: N/A ago"
-    >
-  </a>
-
-  <a href="https://badgen.net/github/checks/trueNAHO/grub2-theme-vimix-very-dark-blue?cache=0">
-    <img
-        src="https://badgen.net/github/checks/trueNAHO/grub2-theme-vimix-very-dark-blue?cache=0"
-        alt="checks: N/A"
-    >
-  </a>
-
-  <a href="https://badgen.net/github/status/trueNAHO/grub2-theme-vimix-very-dark-blue?cache=0">
-    <img
-        src="https://badgen.net/github/status/trueNAHO/grub2-theme-vimix-very-dark-blue?cache=0"
-        alt="status: N/A"
-    >
-  </a>
-
-  <a href="docs/CODE_OF_CONDUCT.md">
-    <img
-        src="https://badgen.net/badge/Contributor%20Convenant/2.1"
-        alt="Contributor Convenant 2.1"
-    >
-  </a>
-
-  <a href="LICENSE">
-    <img
-        src="https://badgen.net/github/license/trueNAHO/grub2-theme-vimix-very-dark-blue"
-        alt="license: N/A"
-    >
-  </a>
+  <a href="https://github.com/trueNAHO/grub2-theme-vimix-very-dark-blue/stargazers"
+    ><img
+      src="https://img.shields.io/github/stars/trueNAHO/grub2-theme-vimix-very-dark-blue?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"
+      alt="Stars: N/A"
+  /></a>
+  <a href="https://github.com/trueNAHO/grub2-theme-vimix-very-dark-blue/issues"
+    ><img
+      src="https://img.shields.io/github/issues/trueNAHO/grub2-theme-vimix-very-dark-blue?colorA=363a4f&colorB=f5a97f&style=for-the-badge"
+      alt="Issues: N/A"
+  /></a>
+  <a href="https://github.com/trueNAHO/grub2-theme-vimix-very-dark-blue/contributors"
+    ><img
+      src="https://img.shields.io/github/contributors/trueNAHO/grub2-theme-vimix-very-dark-blue?colorA=363a4f&colorB=a6da95&style=for-the-badge"
+      alt="Issues: N/A"
+  /></a>
 </p>
 
-<p align="center">
-  <a href="#how-to-use">How to Use</a> •
-  <a href="#installed-size">Installed Size</a> •
-  <a href="#related">Related</a> •
-  <a href="#contrbuting">Contributing</a> •
-  <a href="#license">License</a>
-</p>
+<h1 align="center">
+  <img src="docs/preview.png" alt="PREVIEW" width="100%" />
+</h1>
 
-# How to Use
+<!--toc:start-->
+- [Features](#features)
+- [Installation](#installation)
+  - [Download](#download)
+  - [Setup](#setup)
+- [Installation Size](#installation-size)
+- [Related](#related)
+- [Contributing](#contributing)
+- [License](#license)
+<!--toc:end-->
+
+## Features
+
+- Stand out from the crowd with a boot process that radiates professionalism and
+  modernity thanks to the simple and elegant design of this theme.
+- Elevate your boot process to the next level with the addition of distribution
+  logos.
+- Effortlessly enhance your boot experience with the easy-to-install theme that
+  is compatible with most Linux distributions.
+- The dark blue color scheme creates a sense of elegance and visual appeal that
+  makes your boot process perfect for both day and night use.
+- This theme embodies the philosophy that simplicity is the ultimate form of
+  sophistication.
+- Say goodbye to squinting at your boot messages with the [Fira
+  Code](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
+  font — readability has never been easier.
+- Instead of overwhelming the user with unnecessary details, this theme allows
+  the beauty of simplicity to shine through.
 
 ## Installation
 
-### AUR
+Please note that installation procedures may vary across different Linux
+distributions. If you're using [Fedora](https://getfedora.org), you can find
+detailed instructions on the [Fedora Project
+Wiki](https://fedoraproject.org/wiki/GRUB_2).
 
-Install the [AUR
-package](https://aur.archlinux.org/packages/grub-theme-vimix-very-dark-blue):
+### Download
 
-```shell
+To install this theme from the
+[AUR](https://aur.archlinux.org/packages/grub-theme-vimix-very-dark-blue) with
+an [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) like
+[`yay`](https://github.com/Jguer/yay), run the following command:
+
+```bash
 yay -S grub-theme-vimix-very-dark-blue
 ```
 
-### git
-
-Install this repository inside a temporary directory using `git`:
+Alternatively, install this theme with the `cp`, `git`, `install`, `mktemp`,
+and `rm` utilities:
 
 ```bash
 (
-  declare -r current_dir="$PWD" \
-      && declare -r tmp_dir="$(mktemp -d)" \
-      && cd "$tmp_dir" \
-      && git clone https://github.com/trueNAHO/grub2-theme-vimix-very-dark-blue.git \
-      && cd grub2-theme-vimix-very-dark-blue \
-      && makepkg -si \
-      && cd "$current_dir" \
-      && rm -fr "$tmp_dir"
+    GRUB_THEME_INSTALL_PATH="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue" &&
+        GRUB_THEME_REPO_URL="https://github.com/trueNAHO/grub2-theme-vimix-very-dark-blue.git" &&
+        TMP_DIR="$(mktemp --directory)" &&
+        git clone "$GRUB_THEME_REPO_URL" "$TMP_DIR" &&
+        install --directory --mode 755 "$GRUB_THEME_INSTALL_PATH" &&
+        cp \
+            --no-preserve=ownership \
+            --recursive \
+            "$TMP_DIR/src/." \
+            "$GRUB_THEME_INSTALL_PATH" &&
+        rm --force --recursive "$TMP_DIR"
 )
 ```
 
-## Setup
+### Setup
 
-### Arch Linux
+To apply this theme, update the `GRUB_THEME` line in the `/etc/default/grub`
+file to the following:
 
-Edit `/etc/default/grub`:
-
-```shell
+```bash
 GRUB_THEME="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"
 ```
 
-Update GRUB:
+Then, generate the [GRUB](https://www.gnu.org/software/grub) configuration file
+with superuser privileges by running the following command:
 
-```shell
+```bash
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-### Fedora 28/29/32
+The system will start using the new theme after the next reboot.
 
-Edit `/etc/default/grub`:
+## Installation Size
 
-```shell
-GRUB_THEME="/usr/share/grub/themes/grub-theme-vimix-very-dark-blue/theme.txt"
+Boot partitions are often handled differently from other partitions, and may
+have stricter size limitations.
+
+The space usage by file length is as follows:
+
+```bash
+$ dust --apparent-size --number-of-lines 5 --terminal_width 60 src/
+ 63K   ┌── Fira_Code_Regular_22.pf2│            █████ │  26%
+5.1K   │ ┌── lfs.png               │     ░░░░░░░░░░░█ │   2%
+5.2K   │ ├── slackware.png         │     ░░░░░░░░░░░█ │   2%
+5.3K   │ ├── gnu-linux.png         │     ░░░░░░░░░░░█ │   2%
+158K   ├─┴ icons                   │     ████████████ │  65%
+244K ┌─┴ src                       │█████████████████ │ 100%
 ```
 
-Update GRUB:
+The space usage with a block length of 4 KB is as follows:
 
-```shell
-sudo grub2-mkconfig -o /etc/grub2.cfg
+```bash
+$ dust --number-of-lines 5 --terminal_width 60 src/
+ 64K   ┌── Fira_Code_Regular_22.pf2│              ███ │  16%
+8.0K   │ ┌── ubuntu.png            │     ░░░░░░░░░░░█ │   2%
+8.0K   │ ├── windows.png           │     ░░░░░░░░░░░█ │   2%
+8.0K   │ ├── xubuntu.png           │     ░░░░░░░░░░░█ │   2%
+268K   ├─┴ icons                   │     ████████████ │  65%
+412K ┌─┴ src                       │█████████████████ │ 100%
 ```
 
-Update GRUB for UEFI boot:
+## Related
 
-```shell
-sudo grub2-mkconfig -o /etc/grub2-efi.cfg
-```
+- [Commitizen](http://commitizen.github.io/cz-cli)
+  - Simple commit conventions for internet citizens.
+- [Fira
+  Code](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
+  - Free monospaced font with programming ligatures.
+- [GNU GRUB](https://www.gnu.org/software/grub)
+  - GNU GRand Unified Bootloader.
+- [GRUB2 Theme Vimix](https://github.com/Se7endAY/grub2-theme-vimix)
+  - Blur theme for [GRUB](https://www.gnu.org/software/grub).
+- [`dust`](https://github.com/bootandy/dust)
+  - A more intuitive version of `du` in Rust.
+- [`grub2-theme-preview`](https://github.com/hartwork/grub2-theme-preview)
+  - Preview a full [GRUB](https://www.gnu.org/software/grub) 2.x theme (or just
+    a background image) using KVM/QEMU.
+- [`oxipng`](https://github.com/shssoichiro/oxipng)
+  - Multithreaded PNG optimizer written in Rust.
+- [`svgcleaner`](https://github.com/RazrFalcon/svgcleaner)
+  - Clean up SVG files from unnecessary data.
 
-# Installed Size
+## Contributing
 
-Here is the file space usage for the installed theme. File space usage is
-measured using [dust](https://github.com/bootandy/dust). The first block shows
-the apparent size (file length instead of blocks). The second block shows the
-space usage (on my machine):
+For information on contributing to this project, please refer to
+[CONTRIBUTING.md](docs/CONTRIBUTING.md).
 
-```shell
-$ dust --apparent-size -n 5 -w 53
-1.4K     ┌── arcolinuxd.png       │        ░░█ │   1%
-2.0K     ├── freebsd.png          │        ░░█ │   2%
- 27K   ┌─┴ icons                  │        ███ │  27%
- 53K   ├── Fira_Code_Medium_18.pf2│     ██████ │  52%
-103K ┌─┴ .                        │███████████ │ 100%
-```
-
-```shell
-$ dust -n 5 -w 53
-4.0K   ┌── terminal_box_w.png     │          █ │   1%
-4.0K   ├── theme.txt              │          █ │   1%
- 56K   ├── Fira_Code_Medium_18.pf2│        ███ │  21%
-136K   ├── icons                  │     ██████ │  50%
-272K ┌─┴ .                        │███████████ │ 100%
-```
-
-# Related
-
-- [Commitizen](http://commitizen.github.io/cz-cli/) - Simple commit conventions
-  for internet citizens
-- [Fira Code](
-  https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode) -
-  Monospaced font
-- [GNU GRUB](https://www.gnu.org/software/grub/) - Multiboot boot loader
-- [GRUB2 Theme Vimix](https://github.com/Se7endAY/grub2-theme-vimix) - Blur
-  theme for GRUB
-- [dust](https://github.com/bootandy/dust) - `du` + Rust = `dust`. Like `du`,
-  but more intuitive.
-
-# Contributing
-
-Please read [CONTRIBUTING.md](docs/CONTRIBUTING.md) for details on contributing.
-
-# License
+## License
 
 This project is licensed under [GNU GENERAL PUBLIC LICENSE Version 3](LICENSE).
