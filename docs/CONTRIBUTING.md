@@ -1,85 +1,134 @@
 # Contributing
 
-A big welcome, and thank you for considering contributing to this GRUB theme.
+Thank you for considering contributing to this project! We appreciate any
+contribution you can make to this project, whether it's reporting a bug,
+requesting a feature, improving the code, or polishing the documentation. To
+ensure that everything runs smoothly, please review the guidelines below before
+submitting your contribution.
 
-Reading and following these guidelines will help us make the contribution
-process easy and effective for everyone involved. It also communicates that you
-agree to respect the time of the developers of this dotfiles repository. In
-return, we will reciprocate that respect by addressing your issue, assessing
-changes, and helping you finalize your pull requests.
+<!--toc:start-->
+- [What We Want](#what-we-want)
+- [What We Do Not Want](#what-we-do-not-want)
+- [Contribution Guidelines](#contribution-guidelines)
+  - [How to Submit Changes](#how-to-submit-changes)
+  - [Commit Standards](#commit-standards)
+  - [Tests](#tests)
+  - [Modify the `theme.txt` file](#modify-the-themetxt-file)
+  - [Add Icons](#add-icons)
+  - [Add Fonts](#add-fonts)
+- [Code of Conduct](#code-of-conduct)
+- [License](#license)
+<!--toc:end-->
 
-## Table of Content
+## What We Want
 
-* [Code of Conduct](#code-of-conduct)
-* [Getting Started](#getting-started)
-  * [Issues](#issues)
-  * [Pull Requests](#pull-requests)
-* [Conventions](#conventions)
-  * [Commit messages](#commit-messages)
+We welcome any contributions that help improve this project. Here are some
+examples of the kinds of contributions we are looking for:
+
+- Bug reports and feature requests
+- Code improvements and bug fixes
+- Documentation improvements
+- Expanding the collection of distribution logos to cover a wider range of
+  distributions.
+- Additional theme variations that do not deviate too much from the original
+  look and feel, such as modifications to the background, color scheme, or font.
+
+If you are uncertain about whether your contribution aligns with the scope of
+this project, please refer to the [What We Do Not Want](#what-we-do-not-want)
+section. Feel free to reach out to the maintainers, if you have any questions.
+
+## What We Do Not Want
+
+While we appreciate all contributions that help improve this project, some may
+not align with our vision, require further discussion, or may be better suited
+for a fork. Here are some examples that may fall into this category:
+
+- Drastic modifications to the overall look and feel of the theme
+- Compatibility breaking changes
+
+If you are uncertain about whether your contribution aligns with the scope of
+this project, please refer to the [What We Want](#what-we-want) section. Feel
+free to reach out to the maintainers, if you have any questions.
+
+## Contribution Guidelines
+
+Contributions to this project are welcome! To ensure consistency and quality,
+please adhere to the following guidelines when submitting changes:
+
+### How to Submit Changes
+
+To submit changes to this repository, please follow [these
+steps](https://docs.github.com/en/get-started/quickstart/contributing-to-projects):
+
+- [Fork the
+  repository](https://docs.github.com/en/get-started/quickstart/contributing-to-projects#forking-a-repository)
+- [Create a new branch on your
+  fork](https://docs.github.com/en/get-started/quickstart/contributing-to-projects#creating-a-branch-to-work-on)
+- [Make and push your changes to the forked
+  repository](https://docs.github.com/en/get-started/quickstart/contributing-to-projects#making-and-pushing-changes)
+- [Submit a pull request to the main
+  repository](https://docs.github.com/en/get-started/quickstart/contributing-to-projects#making-a-pull-request)
+
+Please make sure to include a clear and concise description of your changes in
+your pull request.
+
+### Commit Standards
+
+This project uses the [Commitizen](http://commitizen.github.io/cz-cli) commit
+standards to ensure consistent commit messages. If you're unfamiliar with all
+the supported tags, it is recommended to use the [`git
+cz`](https://github.com/commitizen/cz-cli) command, which will prompt you to
+enter a commit message in the proper format.
+
+### Tests
+
+To preview a [GRUB](https://www.gnu.org/software/grub) theme without rebooting
+your machine, consider using the
+[`grub2-theme-preview`](https://github.com/hartwork/grub2-theme-preview)
+utility.
+
+### Modify the `theme.txt` file
+
+All modifications to the `src/theme.txt` file should meet the requirements
+specified in the [GRUB
+documentation](https://www.gnu.org/software/grub/manual/grub/html_node/Theme-file-format.html).
+
+### Add Icons
+
+To add a new icon to the collection, follow these steps:
+
+- Save the original high-resolution file in the `assets/icons` directory.
+- Generate the icon in the `src/icons` directory.
+- Ensure that the logo meets the requirements specified in the [GRUB
+  documentation](https://www.gnu.org/software/grub). Specifically, ensure that
+  the resolution of the icons is consistent with the others, and remove any
+  unnecessary white space margins.
+
+To remove unnecessary data from SVG files, consider using the
+[`svgcleaner`](https://github.com/RazrFalcon/svgcleaner) utility.
+
+To losslessy improve PNG compression, consider using the
+[`oxipng`](https://github.com/shssoichiro/oxipng) utility. However, make sure to
+include the `--ng` flag to prevent grayscale conversions, which seem
+incompatible with [GRUB](https://www.gnu.org/software/grub).
+
+### Add Fonts
+
+To add a new font, follow these steps:
+
+- Save the original font in a format such as OTF, TTF, or WOFF to the
+  `assets/icons` directory.
+- Generate a [GRUB supported](https://www.gnu.org/software/grub) font in the
+  `src` directory with the [`grub-mkfont`](https://www.gnu.org/software/grub)
+  utility.
+- Include the new font in the `src/theme.txt` file.
 
 ## Code of Conduct
 
-We take our open source community seriously and hold ourselves and other
-contributors to high communication standards. By participating and contributing
-to this project, you agree to uphold our [Code of Conduct](CODE_OF_CONDUCT.md).
+For information on the code of conduct for this project, please refer to
+[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
-## Getting Started
+## License
 
-Contributions are made to this repository via Issues and Pull Requests (PRs). A
-few general guidelines that cover both:
-
-* To report security vulnerabilities, do NOT open an issue. Private message a
-  maintainer instead.
-* Search for existing Issues and PRs before creating your own.
-* We work hard to ensure to address issues on time. Depending on the impact, it
-  could take a while to investigate the root cause. A friendly ping in the
-  comment thread to the submitter or a contributor can help draw attention if
-  your issue is blocking.
-
-### Issues
-
-Issues should be used to report problems with the library, request a new
-feature, or discuss potential changes before creating a PR.
-
-If you find an Issue that addresses your problem, please add your reproduction
-information to the existing issue rather than creating a new one. Adding a
-[reaction](https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/)
-can also help indicate to our maintainers that a particular problem is
-affecting more than just the reporter.
-
-### Pull Requests
-
-PRs to our libraries are always welcome and can be a quick way to get your fix
-or improvement slated for the next release. In general, PRs should:
-
-* Only fix/add the functionality in question **OR** address wide-spread
-  whitespace/style issues, not both.
-* Add unit or integration tests for fixed or changed functionality (if a test
-  suite already exists).
-* Address a single concern in the least number of changed lines possible.
-* Include documentation in the repository.
-
-For changes that address core functionality or would require breaking changes
-(e.g. a major release), it's best to open an Issue to discuss your proposal
-first. This is not required but can save time creating and reviewing changes.
-
-In general, we follow the ["fork-and-pull" Git
-workflow](https://github.com/susam/gitpr)
-
-1. Fork the repository to your own GitHub account
-1. Clone the project to your machine
-1. Create a branch locally with a succinct but descriptive name
-1. Commit changes to the branch
-1. Following any formatting and testing guidelines specific to this repository
-1. Push changes to your fork
-1. Open a PR in our repository and follow the PR template so that we can
-   efficiently review the changes.
-
-## Conventions
-
-### Commit messages
-
-This project follows the
-[Angular](https://github.com/angular/material/blob/master/.github/CONTRIBUTING.md#-git-commit-guidelines)
-commit message convention, also known as
-[conventional-changelog](https://github.com/ajoslin/conventional-changelog).
+This project is licensed under [GNU GENERAL PUBLIC LICENSE Version
+3](../LICENSE).
