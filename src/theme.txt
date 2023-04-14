@@ -28,8 +28,8 @@ terminal-border: "0"
 # Show a countdown message using the label component
 + label {
   top = 80%
-  left = 30%
-  width = 40%
+  left = 0%
+  width = 100%
   align = "center"
   id = "__timeout__"
   text = "Booting in %d seconds"
