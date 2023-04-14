@@ -27,7 +27,7 @@ terminal-border: "0"
 
 # Show a countdown message using the label component
 + label {
-  top = 80%
+  top = 83%
   left = 0%
   width = 100%
   align = "center"
