@@ -20,6 +20,8 @@ terminal-border: "0"
   item_font = "Fira Code Regular 18"
   item_color = "#cccccc"
   selected_item_color = "#ffffff"
+  icon_width = 28
+  icon_height = 28
   item_height = 24
   item_spacing = 12
   selected_item_pixmap_style = "select_*.png"
