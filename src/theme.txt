@@ -24,6 +24,7 @@ terminal-border: "0"
   icon_height = 28
   item_height = 24
   item_spacing = 12
+  item_icon_space = 12
   selected_item_pixmap_style = "select_*.png"
 }
 
